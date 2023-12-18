@@ -1,0 +1,8 @@
+{
+    "function": {
+        "includeFiles": [
+            "src/api/**/*.js",
+            "src/api/**/*.ts"
+        ]
+    }
+}
