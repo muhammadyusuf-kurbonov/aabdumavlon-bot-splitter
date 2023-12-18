@@ -1,0 +1,20 @@
+{
+  "name": "aabdumavlon-bot-splitter",
+  "version": "1.0.0",
+  "repository": "https://github.com/muhammadyusuf-kurbonov/aabdumavlon-bot-splitter.git",
+  "author": "Muhammadyusuf Kurbonov <muhammadyusuf.kurbonov2002@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/node": "^3.0.12",
+    "eslint": "^8.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "typescript": "^5.3.3"
+  },
+  "packageManager": "yarn@4.0.2"
+}
