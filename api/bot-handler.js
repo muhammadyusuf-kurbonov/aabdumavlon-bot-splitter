@@ -6,7 +6,7 @@ module.exports = function handleRequest(request, response) {
   //   headers: request.headers
   // });
 
-  console.log(JSON.stringify(request));
+  console.log((request));
 
   response.status(200).json({
     body: request.body,
