@@ -4,9 +4,8 @@
  * @param {import('@vercel/node').VercelResponse} response
  */
 module.exports = function handleRequest(request, response) {
-  fetch({
+  fetch("https://livegram.io/_run/bot/6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4", {
     method: "POST",
-    url: "https://livegram.io/_run/bot/6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4",
     body: request.body,
     headers: request.headers,
   }).catch((error) => console.warn("Livegram redirect failed", error));
