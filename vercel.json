@@ -1,5 +1,7 @@
 {
     "functions": {
-        "includeFiles": "src/api/**/*.[js|ts]"
+        "src/api/**/*": {
+            "includeFiles": "src/api/**/*.[js|ts]"
+        }
     }
 }
