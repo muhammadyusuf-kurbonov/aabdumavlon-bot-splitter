@@ -7,5 +7,5 @@
     "noImplicitAny": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "api/bot-handlerjts"],
+  "include": ["**/*.ts", "api/bot-handler.ts"],
 }
