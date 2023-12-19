@@ -1,4 +1,5 @@
 const https = require('https');
+const axios = require('axios');
 /**
  *
  * @param {import('@vercel/node').VercelRequest} request
@@ -8,28 +9,27 @@ module.exports = async function handleRequest(request, response) {
   const httpsAgent = new https.Agent({
     rejectUnauthorized: false,
   });
+  const axiosInstance = new axios.Axios({
+    httpAgent: httpsAgent,
+  })
   await Promise.all([
-    fetch(
+    axiosInstance.post(
       "https://livegram.io/_run/bot/6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4",
+      request.body,
       {
-        method: "POST",
-        body: request.body,
         headers: request.headers,
-        agent: httpsAgent,
       }
     )
-      .then((res) => console.log("Livegram response", res.status))
+      .then((res) => console.log("Livegram response", res))
       .catch((error) => console.warn("Livegram redirect failed", error)),
-    fetch(
+    axiosInstance.post(
       "https://amojo.amocrm.ru/~external/hooks/telegram?t=6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4&",
+      request.body,
       {
-        method: "POST",
-        body: request.body,
         headers: request.headers,
-        agent: httpsAgent,
       }
     )
-      .then((res) => console.log("AMOCRM response", res.status))
+      .then((res) => console.log("AMOCRM response", res))
       .catch((error) => console.warn("AMOCRM redirect failed", error))
     ]);
 
