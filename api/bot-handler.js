@@ -1,9 +1,13 @@
+const https = require('https');
 /**
  *
  * @param {import('@vercel/node').VercelRequest} request
  * @param {import('@vercel/node').VercelResponse} response
  */
 module.exports = async function handleRequest(request, response) {
+  const httpsAgent = new https.Agent({
+    rejectUnauthorized: false,
+  });
   await Promise.all([
     fetch(
       "https://livegram.io/_run/bot/6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4",
@@ -11,9 +15,10 @@ module.exports = async function handleRequest(request, response) {
         method: "POST",
         body: request.body,
         headers: request.headers,
+        agent: httpsAgent,
       }
     )
-      .then((res) => console.log("Livegram response", res))
+      .then((res) => console.log("Livegram response", res.status))
       .catch((error) => console.warn("Livegram redirect failed", error)),
     fetch(
       "https://amojo.amocrm.ru/~external/hooks/telegram?t=6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4&",
@@ -21,9 +26,10 @@ module.exports = async function handleRequest(request, response) {
         method: "POST",
         body: request.body,
         headers: request.headers,
+        agent: httpsAgent,
       }
     )
-      .then((res) => console.log("AMOCRM response", res))
+      .then((res) => console.log("AMOCRM response", res.status))
       .catch((error) => console.warn("AMOCRM redirect failed", error))
     ]);
 
