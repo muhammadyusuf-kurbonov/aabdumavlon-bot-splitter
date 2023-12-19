@@ -9,11 +9,8 @@ module.exports = async function handleRequest(request, response) {
   const httpsAgent = new https.Agent({
     rejectUnauthorized: false,
   });
-  const axiosInstance = new axios.Axios({
+  const axiosInstance = axios.create({
     httpAgent: httpsAgent,
-    headers: {
-      'Content-Type': 'application/json'
-    }
   });
 
   const requestBody = request.body;
