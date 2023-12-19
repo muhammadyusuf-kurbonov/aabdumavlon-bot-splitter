@@ -19,25 +19,16 @@ module.exports = async function handleRequest(request, response) {
     axiosInstance.post(
       "https://livegram.io/_run/bot/6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4",
       requestBody,
-      {
-        headers: request.headers,
-      }
     )
-      .then((res) => console.log("Livegram response", res))
-      .catch((error) => {}),
+      .then((res) => console.log("Livegram response", res.statusText))
+      .catch((error) => console.log("Livegram error", error.message)),
     axiosInstance.post(
       "https://amojo.amocrm.ru/~external/hooks/telegram?t=6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4&",
       requestBody,
-      {
-        headers: request.headers,
-      }
     )
-      .then((res) => console.log("AMOCRM response", res))
-      .catch((error) => {})
+      .then((res) => console.log("AMOCRM response", res.statusText))
+      .catch((error) => console.log("Livegram error", error.message))
     ]);
-
-  console.log("🚀 ~ file: bot-handler.js:17 ~ handleRequest ~ requestBody:", requestBody, 'type: ', typeof requestBody);
-
 
   response.status(200).json({
     body: request.body,
