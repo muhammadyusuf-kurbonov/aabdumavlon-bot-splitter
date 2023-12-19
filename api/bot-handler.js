@@ -11,6 +11,9 @@ module.exports = async function handleRequest(request, response) {
   });
   const axiosInstance = new axios.Axios({
     httpAgent: httpsAgent,
+    headers: {
+      'Content-Type': 'application/json'
+    }
   });
 
   const requestBody = request.body;
@@ -27,7 +30,7 @@ module.exports = async function handleRequest(request, response) {
       requestBody,
     )
       .then((res) => console.log("AMOCRM response", res.statusText))
-      .catch((error) => console.log("Livegram error", error.message))
+      .catch((error) => console.log("AMOCRM error", error.message))
     ]);
 
   response.status(200).json({
