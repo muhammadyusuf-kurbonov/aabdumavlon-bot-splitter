@@ -13,7 +13,7 @@ module.exports = async function handleRequest(request, response) {
         headers: request.headers,
       }
     )
-      .then((res) => console.log("Livegram response", res.body))
+      .then((res) => console.log("Livegram response", res))
       .catch((error) => console.warn("Livegram redirect failed", error)),
     fetch(
       "https://amojo.amocrm.ru/~external/hooks/telegram?t=6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4&",
@@ -23,7 +23,7 @@ module.exports = async function handleRequest(request, response) {
         headers: request.headers,
       }
     )
-      .then((res) => console.log("AMOCRM response", res.body))
+      .then((res) => console.log("AMOCRM response", res))
       .catch((error) => console.warn("AMOCRM redirect failed", error))
   );
 
