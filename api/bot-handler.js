@@ -4,7 +4,7 @@
  * @param {import('@vercel/node').VercelResponse} response
  */
 module.exports = async function handleRequest(request, response) {
-  await Promise.all(
+  await Promise.all([
     fetch(
       "https://livegram.io/_run/bot/6880547331:AAGMVOokNyBLtMLqsRRP3HKGp-fRFqPM5i4",
       {
@@ -25,7 +25,7 @@ module.exports = async function handleRequest(request, response) {
     )
       .then((res) => console.log("AMOCRM response", res))
       .catch((error) => console.warn("AMOCRM redirect failed", error))
-  );
+    ]);
 
   console.log(request.body);
 
